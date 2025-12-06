@@ -1,0 +1,54 @@
+CREATE TABLE brands (
+    id INTEGER PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    password_hash TEXT NOT NULL,
+    contact_name TEXT,
+    description TEXT,
+    logo_url TEXT,
+    story TEXT,
+    categories TEXT,
+    status TEXT NOT NULL,
+    created_at TEXT,
+    updated_at TEXT
+  );
+CREATE TABLE supply_chain_points (
+    id INTEGER PRIMARY KEY,
+    brand_id INTEGER NOT NULL,
+    title TEXT,
+    description TEXT,
+    address TEXT,
+    latitude REAL,
+    longitude REAL,
+    ethical_highlight TEXT,
+    photo_url TEXT,
+    status TEXT NOT NULL,
+    created_at TEXT,
+    updated_at TEXT,
+    FOREIGN KEY(brand_id) REFERENCES brands(id)
+  );
+CREATE TABLE subscriptions (
+    id INTEGER PRIMARY KEY,
+    brand_id INTEGER NOT NULL,
+    plan_type TEXT NOT NULL,
+    status TEXT NOT NULL,
+    renewal_date TEXT,
+    created_at TEXT,
+    updated_at TEXT,
+    FOREIGN KEY(brand_id) REFERENCES brands(id)
+  );
+CREATE TABLE invoices (
+    id INTEGER PRIMARY KEY,
+    brand_id INTEGER NOT NULL,
+    amount REAL NOT NULL,
+    plan_type TEXT NOT NULL,
+    due_date TEXT,
+    status TEXT NOT NULL,
+    created_at TEXT,
+    FOREIGN KEY(brand_id) REFERENCES brands(id)
+  );
+CREATE TABLE admin_users (
+    id INTEGER PRIMARY KEY,
+    email TEXT UNIQUE NOT NULL,
+    password_hash TEXT NOT NULL
+  );
