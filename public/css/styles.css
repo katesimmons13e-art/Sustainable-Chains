@@ -28,6 +28,26 @@ header {
   justify-content: space-between;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand-text { line-height: 1.2; }
+.brand-title { color: #f8fafc; }
+.brand-sub { color: #cbd5e1; font-size: 12px; }
+
+.site-logo {
+  height: 48px;
+  width: auto;
+  border-radius: 10px;
+  background: #fff;
+  padding: 6px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
 header nav a {
   margin-left: 16px;
   color: #e5e7eb;
