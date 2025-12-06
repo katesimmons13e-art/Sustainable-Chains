@@ -9,7 +9,7 @@ const appBaseUrl = process.env.APP_BASE_URL || 'http://localhost:3000';
 const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
