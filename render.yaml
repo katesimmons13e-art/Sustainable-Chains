@@ -3,12 +3,12 @@ services:
     name: supply-chain-web
     env: node
     plan: starter
-    # Install all dependencies and compile native modules like better-sqlite3 from source
-    buildCommand: npm install --build-from-source
+    # Clean install to avoid cached native binaries; compiles better-sqlite3 from source
+    buildCommand: npm ci --build-from-source
     startCommand: npm start
     envVars:
       - key: NODE_VERSION
-        value: 20.11.1
+        value: 18.20.4
       - key: NPM_CONFIG_BUILD_FROM_SOURCE
         value: "true"
       - key: SESSION_SECRET
