@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
-    secret: 'super-secret-session-key',
+    // Use env override in production; fallback is for local dev only
+    secret: process.env.SESSION_SECRET || 'super-secret-session-key',
     resave: false,
     saveUninitialized: false,
   })
